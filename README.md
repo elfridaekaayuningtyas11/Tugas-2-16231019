@@ -1,10 +1,12 @@
 # Tugas-2-16231019
 Tugas 2 PSD
 
-#exersice 1
+Exersice 1
+
 Ada tiga jenis pendapatan yang dilaporkan dalam data frame ini: p25th, median, dan p75th. Ketiganya masing-masing merujuk pada persentil ke-25, ke-50, dan ke-75 dari distribusi pendapatan individu yang diambil sampelnya untuk suatu jurusan tertentu. Mengapa kita sering memilih median daripada mean untuk menggambarkan pendapatan tipikal suatu kelompok?
 
-#Answer 
+Answer 
+
 Median lebih sering digunakan daripada mean untuk menggambarkan rata-rata pendapatan karena tidak terpengaruh oleh angka yang terlalu tinggi atau terlalu rendah, lebih mencerminkan kondisi kebanyakan orang, lebih mudah dipahami, dan lebih stabil untuk perbandingan antar kelompok. Dalam data pendapatan yang sering kali tidak merata, median lebih akurat dan adil dibandingkan mean, yang bisa terpengaruh oleh segelintir orang dengan pendapatan sangat tinggi atau sangat rendah.
 
 ```{r}
@@ -39,11 +41,10 @@ ggplot(income_long, aes(x = income, fill = persentil)) +
   theme_minimal()
 ```
 
-#exercise 2
+Exercise 2
+
 Membuat ulang visualisasi pada soal menggunakan bin $5000
 
-#answer
-Bin 5000 memberikan visualisasi yang lebih ringkas dan mudah diinterpretasikan sehingga sesuai untuk melihat pola umum dalam distribusi pendapatan median Sementara itu bin 1000 menampilkan detail lebih spesifik namun dapat menghasilkan visualisasi yang lebih kompleks jika data memiliki variasi yang tinggi Pemilihan binwidth sebaiknya disesuaikan dengan tujuan analisis Jika ingin mengamati tren keseluruhan gunakan 5000 Jika ingin melihat variasi yang lebih detail gunakan 1000
 ```{r}
 library(tidyverse)
 library(scales)
@@ -71,8 +72,9 @@ ggplot(college_recent_grads_filtered, aes(x = median, fill = major_category)) +
   theme_minimal()
 ```
 
-#exersice 3 
-membuat ulang visualisasi exercise 2 dengan bin $1000 lalu dibandingkan
+Exersice 3 
+
+Membuat ulang visualisasi exercise 2 dengan bin $1000 lalu dibandingkan.
 
 ```{r}
 library(tidyverse)
@@ -100,10 +102,12 @@ ggplot(college_recent_grads_filtered, aes(x = median, fill = major_category)) +
   ) +
   theme_minimal()
 ```
-#exercise 4
+Bin 5000 memberikan visualisasi yang lebih ringkas dan mudah diinterpretasikan sehingga sesuai untuk melihat pola umum dalam distribusi pendapatan median Sementara itu bin 1000 menampilkan detail lebih spesifik namun dapat menghasilkan visualisasi yang lebih kompleks jika data memiliki variasi yang tinggi Pemilihan binwidth sebaiknya disesuaikan dengan tujuan analisis Jika ingin mengamati tren keseluruhan gunakan 5000 Jika ingin melihat variasi yang lebih detail gunakan 1000
+
+Exercise 4
+
 Jurusan STEM mana (yaitu, jurusan dalam kategori "Biology & Life Science", "Computers & Mathematics", "Engineering", dan "Physical Sciences") yang memiliki gaji median yang sama dengan atau lebih rendah dari median untuk seluruh jurusan (semua jurusan, bukan hanya yang termasuk dalam kategori STEM)? Output Anda hanya boleh menampilkan nama jurusan serta pendapatan median, persentil ke-25, dan persentil ke-75 untuk jurusan tersebut, dan harus diurutkan sehingga jurusan dengan pendapatan median tertinggi berada di bagian atas.
 
-#answer
 ```{r}
 library(tidyverse)
 library(fivethirtyeight)
@@ -132,10 +136,12 @@ ggplot(filtered_stem, aes(x = reorder(major, median), y = median)) +
   theme_minimal()
 ```
 
-#exercise 5
+Exercise 5
+
 Buatlah sebuah pertanyaan yang menarik bagi Anda yang dapat dijawab menggunakan setidaknya tiga variabel dari dataset, lalu jawab pertanyaan tersebut menggunakan statistik ringkasan dan/atau visualisasi.
 
-#answer
+Answer
+
 Apakah ada perbedaan besar dalam tingkat pengangguran antar kategori jurusan, dan bagaimana hubungannya dengan pendapatan median?
 
 ```{r}
@@ -155,5 +161,4 @@ ggplot(college_recent_grads, aes(x = unemployment_rate, y = median, color = majo
        color = "Kategori Jurusan") +
   theme_minimal()
 ```
-#interpretasi
 Grafik ini menunjukkan bahwa tidak ada hubungan yang jelas antara tingkat pengangguran dan pendapatan median berdasarkan kategori jurusan. Sebagian besar jurusan memiliki tingkat pengangguran di bawah 10% dengan pendapatan berkisar antara $30,000 hingga $60,000. Beberapa jurusan tetap memiliki pendapatan tinggi meskipun tingkat penganggurannya rendah, menunjukkan bahwa faktor lain, seperti sektor industri, mungkin lebih berpengaruh terhadap pendapatan lulusan.
